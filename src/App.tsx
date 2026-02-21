@@ -6,15 +6,15 @@ import AppProvider from "@components/organism/provider/app.provider.tsx";
 import Views from "@/views";
 
 function App() {
-	return (
-		<Provider store={store}>
-			<PersistGate persistor={persistor}>
-				<AppProvider>
-					<Views />
-				</AppProvider>
-			</PersistGate>
-		</Provider>
-	);
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <AppProvider>
+          <Views />
+        </AppProvider>
+      </PersistGate>
+    </Provider>
+  );
 }
 
 export default App;

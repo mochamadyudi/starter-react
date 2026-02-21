@@ -10,14 +10,14 @@ export interface IResponseSchema {}
  * Interface for pagination information in list responses
  */
 export interface IPagination {
-	/** Total number of records */
-	total: number;
-	/** Current page number */
-	page: number;
-	/** Number of records per page */
-	limit: number;
-	/** Maximum number of pages */
-	max_page: number;
+  /** Total number of records */
+  total: number;
+  /** Current page number */
+  page: number;
+  /** Number of records per page */
+  limit: number;
+  /** Maximum number of pages */
+  max_page: number;
 }
 
 /**
@@ -25,10 +25,10 @@ export interface IPagination {
  * @template Entity - Type of the response data, defaults to AnyObject
  */
 export interface IResponse<Entity = AnyObject> {
-	/** Response schema information */
-	schema: IResponseSchema;
-	/** Response payload data */
-	data: Entity;
+  /** Response schema information */
+  schema: IResponseSchema;
+  /** Response payload data */
+  data: Entity;
 }
 
 /**
@@ -36,8 +36,8 @@ export interface IResponse<Entity = AnyObject> {
  * @template Entity - Type of the list items, defaults to AnyObject
  */
 export interface IResponseList<Entity = AnyObject> extends IResponse<Entity[]> {
-	/** Pagination details */
-	pagination: IPagination;
+  /** Pagination details */
+  pagination: IPagination;
 }
 
 /**
@@ -51,5 +51,5 @@ export type IAResponse<Entity = AnyObject> = AxiosResponse<IResponse<Entity>>;
  * @template Entity - Type of the list items, defaults to AnyObject
  */
 export type IAResponseList<Entity = AnyObject> = AxiosResponse<
-	IResponseList<Entity>
+  IResponseList<Entity>
 >;

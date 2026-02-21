@@ -6,11 +6,11 @@ import ConnectionMiddleware from "@components/organism/middleware/connection.mid
 interface Props extends PropsWithChildren {}
 
 export default function AppProvider({children}: Props) {
-	const locale = Dictionary["id"];
+  const locale = Dictionary["id"];
 
-	return (
-		<IntlProvider locale={locale.locale} messages={locale.messages}>
-			<ConnectionMiddleware>{children}</ConnectionMiddleware>
-		</IntlProvider>
-	);
+  return (
+    <IntlProvider locale={locale.locale} messages={locale.messages}>
+      <ConnectionMiddleware>{children}</ConnectionMiddleware>
+    </IntlProvider>
+  );
 }

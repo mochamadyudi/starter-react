@@ -13,26 +13,26 @@ const middlewares = [sagaMiddleware];
 export const persistedReducer = persistReducer(persistConfig, reducers);
 
 function configureStore(preloadedState?: any) {
-	const composeEnhancers =
-		// @ts-expect-error
-		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-	const store = createStore(
-		persistedReducer,
-		preloadedState,
-		composeEnhancers(applyMiddleware(...middlewares)),
-	);
+  const composeEnhancers =
+    // @ts-expect-error
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const store = createStore(
+    persistedReducer,
+    preloadedState,
+    composeEnhancers(applyMiddleware(...middlewares)),
+  );
 
-	sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
-	if (typeof module !== "undefined" && module.hasOwnProperty("hot")) {
-		//@ts-expect-error
-		module.hot.accept("./reducers", () => {
-			const nextRootReducer = require("./reducers");
-			store.replaceReducer(nextRootReducer);
-		});
-	}
+  if (typeof module !== "undefined" && module.hasOwnProperty("hot")) {
+    //@ts-expect-error
+    module.hot.accept("./reducers", () => {
+      const nextRootReducer = require("./reducers");
+      store.replaceReducer(nextRootReducer);
+    });
+  }
 
-	return store;
+  return store;
 }
 
 const store = configureStore();

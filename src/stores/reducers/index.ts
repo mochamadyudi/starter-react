@@ -4,13 +4,13 @@ import auth from "./auth";
 import {BaseState, HolderStateMap, StateAuth} from "@/common/types/redux";
 
 const reducers = combineReducers({
-	holder,
-	auth,
+  holder,
+  auth,
 });
 
 export interface DefaultRootState {
-	auth: BaseState<StateAuth>;
-	holder: HolderStateMap;
+  auth: BaseState<StateAuth>;
+  holder: HolderStateMap;
 }
 
 export default reducers;

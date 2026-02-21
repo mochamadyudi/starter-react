@@ -7,19 +7,19 @@ import {IAResponse} from "@/common/types/services/response.ts";
  * @extends Service<User>
  */
 class AuthService extends Service<User> {
-	/** Base URL prefix for authentication endpoints */
-	prefix = "/api/v1/auth";
+  /** Base URL prefix for authentication endpoints */
+  prefix = "/api/v1/auth";
 
-	/**
-	 * Performs user login operation.
-	 * @returns Promise resolving to API response containing user data or null
-	 */
-	async login(): Promise<IAResponse<User | null>> {
-		const response = await this.http.get<IAResponse<User | null>>(
-			this.url("login"),
-		);
-		return response.data;
-	}
+  /**
+   * Performs user login operation.
+   * @returns Promise resolving to API response containing user data or null
+   */
+  async login(): Promise<IAResponse<User | null>> {
+    const response = await this.http.get<IAResponse<User | null>>(
+      this.url("login"),
+    );
+    return response.data;
+  }
 }
 
 /** Singleton instance of the AuthService */

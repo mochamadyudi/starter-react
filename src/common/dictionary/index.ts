@@ -1,7 +1,7 @@
 import idLang from "./entries/id_ID";
 
 const Dictionary = {
-	id: idLang,
+  id: idLang,
 };
 
 export default Dictionary;
