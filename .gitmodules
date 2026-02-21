@@ -1,0 +1,9 @@
+[submodule "src/components/atoms"]
+    path = src/components/atoms
+    url = git@github.com:mochamadyudi/react-component-atoms.git
+    branch = main
+
+[submodule "src/components/molecules"]
+    path = src/components/molecules
+    url = git@github.com:mochamadyudi/react-component-molecules.git
+    branch = main
