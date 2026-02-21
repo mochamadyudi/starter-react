@@ -1,16 +1,28 @@
 import {IntlProvider} from "react-intl";
-import {PropsWithChildren} from "react";
+import {PropsWithChildren, useEffect} from "react";
 import Dictionary from "@/common/dictionary";
+import {HeroUIProvider} from "@heroui/react";
 import ConnectionMiddleware from "@components/organism/middleware/connection.middleware.tsx";
+import {applyCustomVars} from "@common/utils/theme.util.ts";
+import useTheme from "@hooks/useTheme.ts";
 
 interface Props extends PropsWithChildren {}
 
 export default function AppProvider({children}: Props) {
   const locale = Dictionary["id"];
+  const {theme} = useTheme();
+
+  useEffect(() => {
+    applyCustomVars(theme);
+  }, [theme]);
 
   return (
     <IntlProvider locale={locale.locale} messages={locale.messages}>
-      <ConnectionMiddleware>{children}</ConnectionMiddleware>
+      <HeroUIProvider>
+        <ConnectionMiddleware>
+          <main className="app">{children}</main>
+        </ConnectionMiddleware>
+      </HeroUIProvider>
     </IntlProvider>
   );
 }

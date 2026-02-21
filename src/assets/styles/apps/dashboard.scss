@@ -1,0 +1,35 @@
+.app-dashboard {
+  @apply flex flex-col w-full min-h-dvh bg-white;
+  &-main {
+    @apply flex flex-1  flex-row min-h-screen;
+  }
+
+
+  &-header {
+    @apply bg-white fixed top-0 w-full border-b;
+    height: var(--topbar-height);
+    z-index: var(--z-index-topbar);
+    box-shadow: 10px 10px 10px rgba(0, 21, 41, .04);
+
+  }
+
+  &-sider {
+    @apply border-r relative;
+    width: var(--sider-width);
+
+    &-content {
+      @apply p-4 fixed top-0 border-r h-screen;
+      width: var(--sider-width);
+      background: var(--sider-bg-color);
+    }
+  }
+
+  &-content {
+    @apply flex-1 border border-red-500;
+    padding-top: var(--topbar-height);
+
+    &-body {
+      @apply p-4;
+    }
+  }
+}

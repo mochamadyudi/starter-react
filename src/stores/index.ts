@@ -1,3 +1,4 @@
+import {composeWithDevTools} from "@redux-devtools/extension";
 import {applyMiddleware, compose, createStore} from "redux";
 import {persistReducer, persistStore} from "redux-persist";
 import reducers from "./reducers";
@@ -14,8 +15,9 @@ export const persistedReducer = persistReducer(persistConfig, reducers);
 
 function configureStore(preloadedState?: any) {
   const composeEnhancers =
-    // @ts-expect-error
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
+    composeWithDevTools ||
+    compose;
   const store = createStore(
     persistedReducer,
     preloadedState,

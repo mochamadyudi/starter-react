@@ -1,29 +1,29 @@
 import {createTransform} from "redux-persist";
 import Security from "@/common/utils/security";
-//@ts-ignore
-import createIndexedDBStorage from "redux-persist-indexeddb-storage";
+import openStorage from "@common/utils/storage";
+import {APP_PATTERN} from "@common/configs/app.config.ts";
 
-export const indexedDBStorage = createIndexedDBStorage("TaxNgitung", "root");
+export const indexedDBStorage = openStorage(
+  APP_PATTERN.storage.name,
+  APP_PATTERN.storage.path,
+);
 
 const encryptTransform = createTransform(
-  // Transform the state on its way to being serialized and persisted
   (inboundState: string) => {
-    return Security.compress(inboundState); // Security.encoding(inboundState)
+    return Security.compress(inboundState);
   },
-  // Transform the state after it is rehydrated
   (outboundState) => {
     return Security.decompress(outboundState);
   },
-  {whitelist: ["auth", "theme"]},
+  {whitelist: ["theme", "holder"]},
 );
 
 export const persistConfig = {
-  key: "@state",
+  key: APP_PATTERN.storage.table.persistKey,
   storage: indexedDBStorage,
   version: 1,
-  keyPrefix: "IAM",
-  serialize: true,
-  debug: true,
+  serialize: false,
+  debug: false,
   blacklist: ["auth"],
   transforms: [encryptTransform],
 };

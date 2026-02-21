@@ -1,6 +1,6 @@
-import {PropsWithChildren, useEffect} from "react";
-import classNames from "classnames";
 import useConnection from "@/hooks/useConnection";
+import classNames from "classnames";
+import {PropsWithChildren, useEffect} from "react";
 
 interface ConnectionMiddlewareProps extends PropsWithChildren {}
 

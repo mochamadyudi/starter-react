@@ -2,7 +2,7 @@ import "./assets/styles/app.scss";
 import {Provider} from "react-redux";
 import {PersistGate} from "redux-persist/integration/react";
 import store, {persistor} from "./stores";
-import AppProvider from "@components/organism/provider/app.provider.tsx";
+import AppProvider from "@components/organism/provider/app.provider";
 import Views from "@/views";
 
 function App() {
