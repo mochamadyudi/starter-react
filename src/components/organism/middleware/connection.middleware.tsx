@@ -26,9 +26,11 @@ export default function ConnectionMiddleware({
       {!connection && (
         <div
           className={classNames(
-            "fixed bottom-0 left-0 w-full h-10 bg-red-500 z-[999] flex items-center justify-center text-white",
+            "fixed bottom-0 left-0 w-full z-[999] flex items-center justify-center text-white",
           )}>
-          You are currently offline. Please check your internet connection.
+          <div className="w-full text-center mx-auto p-2 flex items-center justify-center  bg-[hsl(var(--heroui-warning))]">
+            You are currently offline. Please check your internet connection.
+          </div>
         </div>
       )}
     </>

@@ -22,8 +22,8 @@ export const persistConfig = {
   key: APP_PATTERN.storage.table.persistKey,
   storage: indexedDBStorage,
   version: 1,
-  serialize: false,
-  debug: false,
+  serialize: true,
+  debug: true,
   blacklist: ["auth"],
   transforms: [encryptTransform],
 };

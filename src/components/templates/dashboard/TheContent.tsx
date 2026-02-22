@@ -3,7 +3,6 @@ import {useLocation} from "react-router-dom";
 import {getRouteByPath} from "@common/utils/route.ts";
 import {BreadcrumbItem, Breadcrumbs} from "@heroui/react";
 import {useIntl} from "react-intl";
-import {Button} from "@heroui/button";
 
 interface TheContentProps extends PropsWithChildren {}
 
@@ -21,7 +20,6 @@ export default function TheContent({children}: TheContentProps) {
         const url = "/" + segments.slice(0, index + 1).join("/");
         const routeMatch = getRouteByPath(url);
 
-        // fallback ke segment jika route tidak ditemukan
         const label =
           routeMatch && routeMatch.type !== "divider"
             ? routeMatch.menu.label
@@ -32,6 +30,7 @@ export default function TheContent({children}: TheContentProps) {
     }
     return [];
   }, [route, pathname]);
+
   return (
     <div className="app-dashboard-content-body">
       {route &&
@@ -48,9 +47,6 @@ export default function TheContent({children}: TheContentProps) {
             ))}
           </Breadcrumbs>
         )}
-      <Button variant="solid" color="primary">
-        test
-      </Button>
       {children}
     </div>
   );

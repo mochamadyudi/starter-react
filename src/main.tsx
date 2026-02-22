@@ -7,4 +7,4 @@ bootstrap(
   <StrictMode>
     <App />
   </StrictMode>,
-);
+).then((r) => r);

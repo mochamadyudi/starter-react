@@ -5,6 +5,7 @@ import {HeroUIProvider} from "@heroui/react";
 import ConnectionMiddleware from "@components/organism/middleware/connection.middleware.tsx";
 import {applyCustomVars} from "@common/utils/theme.util.ts";
 import useTheme from "@hooks/useTheme.ts";
+import classNames from "classnames";
 
 interface Props extends PropsWithChildren {}
 
@@ -20,7 +21,7 @@ export default function AppProvider({children}: Props) {
     <IntlProvider locale={locale.locale} messages={locale.messages}>
       <HeroUIProvider>
         <ConnectionMiddleware>
-          <main className="app">{children}</main>
+          <main className={classNames(theme.mode, "app")}>{children}</main>
         </ConnectionMiddleware>
       </HeroUIProvider>
     </IntlProvider>

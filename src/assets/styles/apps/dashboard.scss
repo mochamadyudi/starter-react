@@ -1,35 +1,37 @@
 .app-dashboard {
-  @apply flex flex-col w-full min-h-dvh bg-white;
+  @apply flex flex-col w-full min-h-dvh transition-all;
   &-main {
     @apply flex flex-1  flex-row min-h-screen;
   }
 
 
   &-header {
-    @apply bg-white fixed top-0 w-full border-b;
-    height: var(--topbar-height);
+    @apply bg-white fixed top-0 border-b flex-1 transition-all;
+    height: var(--header-height);
     z-index: var(--z-index-topbar);
     box-shadow: 10px 10px 10px rgba(0, 21, 41, .04);
-
+    width: calc(100% - var(--sider-width));
   }
 
   &-sider {
-    @apply border-r relative;
+    @apply border-r relative transition-all;
     width: var(--sider-width);
 
     &-content {
-      @apply p-4 fixed top-0 border-r h-screen;
+      @apply fixed top-0 border-r h-screen transition-all;
       width: var(--sider-width);
       background: var(--sider-bg-color);
     }
   }
 
   &-content {
-    @apply flex-1 border border-red-500;
-    padding-top: var(--topbar-height);
+    @apply flex-1 relative self-auto w-full transition-all;
+    padding-top: var(--header-height);
+    background: var(--layout-content-bg);
 
     &-body {
-      @apply p-4;
+      @apply relative w-full self-auto place-self-auto transition-all;
+      padding: var(--layout-content-padding);
     }
   }
 }

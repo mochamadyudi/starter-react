@@ -1,0 +1,13 @@
+.layout {
+  &-fluid {
+    @apply relative flex flex-col;
+    width: calc(100% + var(--layout-content-padding) * 2);
+    top: calc(-1 * var(--layout-content-padding));
+    margin-left: calc(-1 * var(--layout-content-padding));
+    padding: var(--layout-content-padding);
+
+    > div {
+      @apply flex-1;
+    }
+  }
+}

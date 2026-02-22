@@ -50,7 +50,7 @@ export default defineConfig(({mode}) => {
     test: {
       environment: "jsdom",
       globals: true,
-      include: ["src/**/*.test.{js,ts,jsx,tsx}"], // pastikan pattern sesuai
+      include: ["src/**/*.test.{js,ts,jsx,tsx}"],
       coverage: {
         reporter: ["text", "json", "html"],
       },

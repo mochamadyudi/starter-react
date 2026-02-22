@@ -1,8 +1,10 @@
+import HeaderSidebar from "@components/templates/dashboard/common/header.sidebar";
+
 export default function TheSider() {
   return (
     <div className="app-dashboard-sider">
       <aside className="app-dashboard-sider-content">
-        <p>sider</p>
+        <HeaderSidebar />
       </aside>
     </div>
   );

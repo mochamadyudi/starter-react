@@ -1,5 +1,3 @@
-import {ITheme} from "@common/types";
-
 const abortController = new AbortController();
 
 export const APP_CONFIG: ImportMetaEnv = {
@@ -31,17 +29,3 @@ export const APP_PATTERN = {
     },
   },
 };
-
-export const APP_THEME = {
-  colorPrimary: "#ff1818",
-  // colorSecondary: "#722ed1",
-  // colorSuccess: "#52c41a",
-  // colorWarning: "#faad14",
-  // colorDanger: "#ff4d4f",
-  // colorInfo: "#389bf8",
-
-  siderBgColor: "#ffffff",
-
-  borderRadius: "6px",
-  fontSizeBase: "14px",
-} as const satisfies ITheme;
